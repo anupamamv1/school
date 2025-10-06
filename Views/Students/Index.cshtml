@@ -1,0 +1,22 @@
+@model List<SchoolMgmt.Web.Models.Student>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Students";
+}
+<h2>Registered Students</h2>
+<table border="1" cellpadding="6">
+  <thead>
+    <tr><th>Code</th><th>Name</th><th>Email</th><th>Phone</th><th>Quals</th></tr>
+  </thead>
+  <tbody>
+  @foreach (var s in Model) {
+    <tr>
+      <td>@s.StudentCode</td>
+      <td>@s.FirstName @s.LastName</td>
+      <td>@s.Email</td>
+      <td>@s.Phone</td>
+      <td>@s.Qualifications.Count</td>
+    </tr>
+  }
+  </tbody>
+</table>

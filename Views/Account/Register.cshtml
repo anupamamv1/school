@@ -1,0 +1,47 @@
+@model SchoolMgmt.Web.Controllers.RegisterVm
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Register";
+}
+<h2>Register</h2>
+<form asp-action="Register" method="post" id="regForm">
+  <div><label>First Name</label><input asp-for="FirstName" /></div>
+  <div><label>Last Name</label><input asp-for="LastName" /></div>
+  <div><label>Age</label><input asp-for="Age" type="number"/></div>
+  <div><label>DOB</label><input asp-for="DOB" type="date"/></div>
+  <div><label>Gender</label>
+    <select asp-for="Gender">
+      <option value="">--Select--</option>
+      <option>Male</option><option>Female</option><option>Other</option>
+    </select>
+  </div>
+  <div><label>Email</label><input asp-for="Email" type="email"/></div>
+  <div><label>Phone</label><input asp-for="Phone"/></div>
+  <div><label>Username</label><input asp-for="Username"/></div>
+  <div><label>Password</label><input asp-for="Password" type="password"/></div>
+
+  <h4>Qualifications</h4>
+  <table id="quals">
+    <thead><tr><th>Course</th><th>University</th><th>Year</th><th>%</th><th></th></tr></thead>
+    <tbody></tbody>
+  </table>
+  <button type="button" id="addRow">Add Qualification</button>
+  <br/><br/>
+  <button type="submit">Register</button>
+  <span asp-validation-summary="All"></span>
+</form>
+
+@section Scripts{
+<script>
+  $("#regForm").validate({
+    rules: {
+      FirstName: "required",
+      Age: { required: true, number: true, min: 1 },
+      DOB: "required",
+      Gender: "required",
+      Email: { required: true, email: true },
+      Phone: { required: true }
+    }
+  });
+</script>
+}

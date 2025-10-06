@@ -1,0 +1,23 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SchoolMgmt</title>
+    <link rel="stylesheet" href="/wwwroot/css/site.css" />
+</head>
+<body>
+    <div class="container">
+        <header><h1>School Management</h1></header>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+        <footer><small>&copy; @DateTime.Now.Year</small></footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="/wwwroot/js/site.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
